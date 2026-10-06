@@ -92,12 +92,16 @@ p { margin: 0; }
 .btn-small { min-height: 42px; padding: 0 18px; font-size: 0.875rem; }
 
 /* Header */
+/* Frosted glass lives on a pseudo-element, so the mobile menu inside the header can blur the page too */
 .header {
   position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
-  background: color-mix(in srgb, var(--blush) 86%, transparent);
-  backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
   border-bottom: 1px solid transparent; transition: border-color .3s ease;
 }
+.header::before, .mobile-nav {
+  background: color-mix(in srgb, var(--blush) 86%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
+}
+.header::before { content: ""; position: absolute; inset: 0; z-index: -1; }
 .header.scrolled { border-bottom-color: var(--line); }
 .header-row { height: var(--header-h); display: flex; align-items: center; gap: 12px; }
 @media (min-width: 720px) { .header-row { gap: 24px; } }
@@ -123,8 +127,8 @@ p { margin: 0; }
 .mobile-nav {
   position: absolute; top: 100%; left: 0; right: 0; width: auto; margin: 0; z-index: 1;
   display: grid; gap: 2px; padding: 10px var(--gutter) 22px; max-height: calc(100vh - var(--header-h)); overflow-y: auto;
-  background: var(--blush); border-top: 1px solid var(--line); border-radius: 0 0 24px 24px;
-  box-shadow: 0 24px 40px -24px rgba(30, 58, 50, .45), 0 0 0 100vmax rgba(30, 40, 36, .28); clip-path: inset(0 0 -100vmax 0);
+  border-top: 1px solid var(--line); border-radius: 0 0 24px 24px;
+  box-shadow: 0 24px 40px -24px rgba(30, 58, 50, .4);
 }
 .mobile-nav[hidden] { display: none; }
 .mobile-nav a { text-decoration: none; font: 400 1.6rem/1.2 var(--font-display); padding: 11px 0; color: var(--forest); border-bottom: 1px solid var(--line); }
