@@ -1002,12 +1002,9 @@ p { margin: 0; }
     textEls.forEach(function (el) { var v = t(el.dataset.i18n); if (v) el.textContent = v; });
     htmlEls.forEach(function (el) { var v = t(el.dataset.i18nHtml); if (v) el.innerHTML = v; });
     document.querySelectorAll("[data-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
-    try { localStorage.setItem("soprano-lang", lang); } catch (e) {}
   }
-  var saved = null;
-  try { saved = localStorage.getItem("soprano-lang"); } catch (e) {}
-  var nav = (navigator.language || "").toLowerCase();
-  setLang(saved || (nav.indexOf("ru") === 0 ? "ru" : "et"));
+  // Estonian is the main language: the page always opens in ET, Russian only on request.
+  try { localStorage.removeItem("soprano-lang"); } catch (e) {}
   document.querySelectorAll("[data-lang]").forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.lang); }); });
 
   // Header shadow and mobile booking bar
