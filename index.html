@@ -954,19 +954,19 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
     </div>
     <p style="color:var(--muted)" data-i18n="book.lead">Vali endale mugav viis. Töötame eelneva broneeringuga.</p>
     <div class="opts">
+      <a class="opt" href="https://app.stebby.eu/pos/soprano.services" target="_blank" rel="noopener">
+        <span class="ic"><svg><use href="#i-ticket"/></svg></span>
+        <span><strong data-i18n="book.stebby">Osta pilet Stebby kaudu</strong><span class="d" data-i18n="book.stebby.d">Endospheres ja näomassaaž</span></span>
+        <svg class="go"><use href="#i-arrow"/></svg>
+      </a>
       <div class="opt">
         <span class="ic"><svg><use href="#i-phone"/></svg></span>
-        <a href="tel:+37256824792" style="text-decoration:none;color:inherit"><strong data-i18n="book.call">Helista</strong><span class="d">+372 5682 4792</span></a>
+        <a href="tel:+37256824792" style="text-decoration:none;color:inherit"><strong data-i18n="book.call">Helista</strong><span class="d" id="book-phone">+372 5682 4792</span></a>
         <button class="copy" type="button" id="copy-phone" data-i18n="book.copy">Kopeeri</button>
       </div>
       <a class="opt" href="https://www.instagram.com/soprano_services/" target="_blank" rel="noopener">
         <span class="ic"><svg><use href="#i-insta"/></svg></span>
         <span><strong data-i18n="book.insta">Kirjuta Instagramis</strong><span class="d">@soprano_services</span></span>
-        <svg class="go"><use href="#i-arrow"/></svg>
-      </a>
-      <a class="opt" href="https://app.stebby.eu/pos/soprano.services" target="_blank" rel="noopener">
-        <span class="ic"><svg><use href="#i-ticket"/></svg></span>
-        <span><strong data-i18n="book.stebby">Osta pilet Stebby kaudu</strong><span class="d" data-i18n="book.stebby.d">Endospheres ja näomassaaž</span></span>
         <svg class="go"><use href="#i-arrow"/></svg>
       </a>
       <a class="opt" href="mailto:org.lidia@gmail.com">
@@ -1128,7 +1128,7 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
     } catch (e) { selectPhone(); }
   });
   function selectPhone() {
-    var el = dlg.querySelector(".opt .d");
+    var el = document.getElementById("book-phone");
     var r = document.createRange(); r.selectNodeContents(el);
     var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
   }
