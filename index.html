@@ -1,0 +1,1140 @@
+<!doctype html>
+<html lang="et">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Soprano Studio Jõhvi</title>
+<meta name="description" content="Soprano Studio Jõhvis: laserepilatsioon, näo koorimine, nahadiagnostika, Endospheres ja näohooldused. Meditsiinilise haridusega kosmeetikud. Rakvere 19, Jõhvi.">
+<meta property="og:title" content="Soprano Studio — kosmeetika ja laser Jõhvis">
+<meta property="og:description" content="Laserepilatsioon, koorimised, nahadiagnostika ja näohooldused. Broneeri aeg: +372 5682 4792.">
+<meta property="og:image" content="img/hero.webp">
+<meta name="theme-color" content="#1E3A32">
+<link rel="icon" href="img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Commissioner:wght@300;400;500;600&display=swap">
+<style>
+/* Layout: arches and the gold ring from the studio's own logo, on blush paper, with one deep-forest band for prices. */
+:root {
+  --blush: #F6ECE7;
+  --paper: #FDF8F5;
+  --petal: #EED8CF;
+  --forest: #1E3A32;
+  --forest-soft: #2C4F45;
+  --gold: #B48F5A;
+  --rose: #9A5A50;
+  --ink: #2A2421;
+  --muted: #6D605B;
+  --line: #E2CFC6;
+  --on-forest: #F4EAE3;
+  --on-forest-muted: #BFCDC6;
+
+  --font-display: "Cormorant", "Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --font-body: "Commissioner", "Segoe UI", system-ui, -apple-system, sans-serif;
+
+  --step--1: 0.8125rem;
+  --step-0: 1rem;
+  --step-1: 1.125rem;
+  --step-2: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --step-3: clamp(2.25rem, 1.6rem + 2.8vw, 3.5rem);
+  --step-4: clamp(2.75rem, 1.6rem + 5.2vw, 5.6rem);
+
+  --gutter: 16px;
+  --radius: 18px;
+  --header-h: 60px;
+  color-scheme: light;
+}
+@media (min-width: 720px) { :root { --gutter: 32px; --header-h: 68px; } }
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 12px); -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--blush);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: var(--step-0);
+  font-weight: 400;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+h1, h2, h3 { font-family: var(--font-display); font-weight: 400; line-height: 1.05; margin: 0; text-wrap: balance; letter-spacing: -0.01em; }
+h1 em, h2 em { font-style: italic; color: var(--rose); font-weight: 400; }
+p { margin: 0; }
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 3px; border-radius: 6px; }
+
+.wrap { width: min(1180px, 100% - 2 * var(--gutter)); margin-inline: auto; }
+.eyebrow {
+  font-size: var(--step--1); font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--forest); display: inline-flex; align-items: center; gap: 10px;
+}
+.eyebrow::before { content: ""; width: 28px; height: 1px; background: var(--gold); }
+.section { padding-block: clamp(64px, 9vw, 120px); }
+.section-head { display: grid; gap: 18px; max-width: 640px; margin-bottom: clamp(36px, 5vw, 56px); }
+.section-head h2 { font-size: var(--step-3); }
+.section-head p { color: var(--muted); font-size: var(--step-1); max-width: 56ch; }
+
+/* Buttons */
+.btn {
+  --bg: var(--forest); --fg: var(--on-forest);
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-height: 52px; padding: 0 26px; border-radius: 999px; border: 1px solid var(--bg);
+  background: var(--bg); color: var(--fg); font: 500 0.95rem/1 var(--font-body); letter-spacing: 0.02em;
+  text-decoration: none; cursor: pointer; transition: transform .2s ease, background .2s ease, color .2s ease, border-color .2s ease;
+}
+.btn:hover { --bg: var(--forest-soft); transform: translateY(-1px); }
+.btn svg { width: 18px; height: 18px; flex: none; }
+.btn-ghost { --bg: transparent; --fg: var(--forest); border-color: var(--forest); }
+.btn-ghost:hover { --bg: var(--forest); --fg: var(--on-forest); }
+.btn-small { min-height: 42px; padding: 0 18px; font-size: 0.875rem; }
+
+/* Header */
+.header {
+  position: sticky; top: env(safe-area-inset-top, 0px); z-index: 40;
+  background: color-mix(in srgb, var(--blush) 86%, transparent);
+  backdrop-filter: saturate(1.4) blur(14px); -webkit-backdrop-filter: saturate(1.4) blur(14px);
+  border-bottom: 1px solid transparent; transition: border-color .3s ease;
+}
+.header.scrolled { border-bottom-color: var(--line); }
+.header-row { height: var(--header-h); display: flex; align-items: center; gap: 12px; }
+@media (min-width: 720px) { .header-row { gap: 24px; } }
+.brand { display: flex; align-items: center; text-decoration: none; margin-right: auto; flex: none; }
+.logo { height: 28px; width: auto; aspect-ratio: 583 / 133; }
+@media (min-width: 720px) { .logo { height: 36px; } }
+.nav { display: none; gap: 28px; }
+.nav a { text-decoration: none; font-size: 0.92rem; color: var(--ink); position: relative; padding-block: 6px; }
+.nav a::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold); transform: scaleX(0); transition: transform .25s ease; transform-origin: left; }
+.nav a:hover::after { transform: scaleX(1); }
+.lang { flex: none; display: inline-flex; border: 1px solid var(--line); border-radius: 999px; padding: 3px; background: var(--paper); }
+.lang button {
+  border: 0; background: transparent; font: 500 0.75rem/1 var(--font-body); letter-spacing: 0.08em; color: var(--muted);
+  padding: 7px 10px; border-radius: 999px; cursor: pointer;
+}
+.lang button[aria-pressed="true"] { background: var(--forest); color: var(--on-forest); }
+.header .btn { display: none; }
+.menu-btn { flex: none; display: inline-grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; border: 1px solid var(--line); background: var(--paper); color: var(--forest); cursor: pointer; }
+.menu-btn svg { width: 20px; height: 20px; }
+.menu-btn .i-close, .menu-btn[aria-expanded="true"] .i-menu { display: none; }
+.menu-btn[aria-expanded="true"] .i-close { display: block; }
+.mobile-nav { display: grid; gap: 4px; padding: 8px 0 20px; border-top: 1px solid var(--line); }
+.mobile-nav[hidden] { display: none; }
+.mobile-nav a { text-decoration: none; font: 400 1.6rem/1.2 var(--font-display); padding: 10px 0; color: var(--forest); }
+@media (min-width: 980px) {
+  .nav { display: flex; }
+  .header .btn { display: inline-flex; }
+  .menu-btn, .mobile-nav { display: none !important; }
+}
+
+/* Hero */
+.hero { padding-block: clamp(28px, 5vw, 72px) clamp(56px, 8vw, 104px); }
+.hero-grid { display: grid; gap: clamp(36px, 5vw, 64px); align-items: center; }
+.hero-copy { display: grid; gap: 26px; min-width: 0; }
+.hero h1 { font-size: var(--step-4); font-weight: 300; line-height: 0.98; }
+.hero h1 em { display: block; }
+.hero-lead { font-size: var(--step-1); color: var(--muted); max-width: 46ch; }
+.hero-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.trust { list-style: none; padding: 0; margin: 8px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 20px; max-width: 520px; }
+.trust li { display: flex; gap: 10px; align-items: flex-start; font-size: 0.9rem; color: var(--ink); line-height: 1.35; }
+.trust svg { width: 18px; height: 18px; color: var(--gold); flex: none; margin-top: 1px; }
+
+.hero-visual { position: relative; justify-self: center; width: min(100%, 470px); padding: 18px; }
+.ring { position: absolute; inset: 0; width: 100%; height: 100%; color: var(--gold); pointer-events: none; overflow: visible; }
+.arch { position: relative; aspect-ratio: 4 / 5; border-radius: 999px 999px 24px 24px; overflow: hidden; background: var(--petal); }
+.arch img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; }
+.float-chip {
+  position: absolute; display: grid; gap: 2px; background: var(--paper); border: 1px solid var(--line);
+  border-radius: 16px; padding: 12px 16px; box-shadow: 0 18px 40px -22px rgba(30, 58, 50, .45); max-width: 220px;
+}
+.float-chip strong { font: 500 1.35rem/1.1 var(--font-display); color: var(--forest); }
+.float-chip span { font-size: 0.78rem; color: var(--muted); line-height: 1.35; }
+.chip-a { left: -4px; bottom: 16%; }
+.chip-b { right: -4px; top: 14%; }
+@media (min-width: 900px) {
+  .hero-grid { grid-template-columns: 1.15fr 0.85fr; }
+  .chip-a { left: -40px; }
+  .chip-b { right: -28px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .hero-copy > * { animation: rise .9s cubic-bezier(.2,.7,.2,1) both; }
+  .hero-copy > *:nth-child(2) { animation-delay: .08s; }
+  .hero-copy > *:nth-child(3) { animation-delay: .16s; }
+  .hero-copy > *:nth-child(4) { animation-delay: .24s; }
+  .hero-copy > *:nth-child(5) { animation-delay: .32s; }
+  .arch { animation: unveil 1.2s cubic-bezier(.2,.7,.2,1) both; }
+  .ring circle { stroke-dasharray: 1600; animation: draw 2.4s ease both .2s; }
+  .float-chip { animation: rise 1s cubic-bezier(.2,.7,.2,1) both .5s; }
+}
+@keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes unveil { from { clip-path: inset(100% 0 0 0 round 999px 999px 24px 24px); } to { clip-path: inset(0 0 0 0 round 999px 999px 24px 24px); } }
+@keyframes draw { from { stroke-dashoffset: 1600; } to { stroke-dashoffset: 0; } }
+
+/* Marquee */
+.marquee { border-block: 1px solid var(--line); background: var(--paper); overflow: hidden; }
+.marquee-track { display: flex; width: max-content; gap: 40px; padding-block: 18px; }
+.marquee-track span { font: italic 400 1.5rem/1 var(--font-display); color: var(--forest); white-space: nowrap; display: inline-flex; align-items: center; gap: 40px; }
+.marquee-track span::after { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--gold); }
+@media (prefers-reduced-motion: no-preference) { .marquee-track { animation: slide 40s linear infinite; } }
+@keyframes slide { to { transform: translateX(-50%); } }
+
+/* Services */
+.cards { display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 680px) { .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1040px) { .cards { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.card {
+  display: flex; flex-direction: column; background: var(--paper); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden; min-width: 0; transition: transform .3s ease, box-shadow .3s ease;
+}
+.card:hover { transform: translateY(-3px); box-shadow: 0 26px 50px -34px rgba(30, 58, 50, .5); }
+.card-media { aspect-ratio: 4 / 3; overflow: hidden; background: var(--petal); }
+.card-media img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease; }
+.card:hover .card-media img { transform: scale(1.04); }
+.card-body { display: flex; flex-direction: column; gap: 12px; padding: 22px 22px 22px; flex: 1; }
+.tag { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--rose); font-weight: 500; }
+.card h3 { font-size: 1.9rem; color: var(--forest); }
+.card p { color: var(--muted); font-size: 0.95rem; }
+.ticks { list-style: none; margin: 4px 0 0; padding: 0; display: grid; gap: 8px; }
+.ticks li { display: flex; gap: 10px; font-size: 0.92rem; line-height: 1.4; }
+.ticks li::before { content: ""; flex: none; width: 16px; height: 16px; margin-top: 2px; border-radius: 50%; border: 1px solid var(--gold);
+  background: radial-gradient(circle, var(--gold) 0 3px, transparent 3.5px); }
+.card-foot { margin-top: auto; padding-top: 16px; border-top: 1px dashed var(--line); display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.price { font: 500 1.4rem/1.1 var(--font-display); color: var(--forest); }
+.price small { display: block; font: 400 0.72rem/1.3 var(--font-body); color: var(--muted); letter-spacing: 0.04em; }
+
+/* Before / after */
+.results { background: var(--paper); border-block: 1px solid var(--line); }
+.ba-grid { display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 860px) { .ba-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.ba { display: grid; gap: 12px; margin: 0; min-width: 0; }
+.ba-frame { --pos: 50%; position: relative; aspect-ratio: 16 / 10; border-radius: var(--radius); overflow: hidden; background: var(--petal); user-select: none; touch-action: pan-y; }
+.ba-frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.ba-frame .before { clip-path: inset(0 calc(100% - var(--pos)) 0 0); }
+.ba-handle { position: absolute; top: 0; bottom: 0; left: var(--pos); width: 2px; background: var(--paper); transform: translateX(-1px); pointer-events: none; }
+.ba-handle::after {
+  content: ""; position: absolute; top: 50%; left: 50%; width: 42px; height: 42px; transform: translate(-50%, -50%);
+  border-radius: 50%; background: var(--paper); box-shadow: 0 6px 18px rgba(0,0,0,.18);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231E3A32' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M9 6l-6 6 6 6M15 6l6 6-6 6'/%3E%3C/svg%3E");
+  background-size: 22px; background-repeat: no-repeat; background-position: center;
+}
+.ba-frame input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: ew-resize; margin: 0; }
+.ba-frame:has(input:focus-visible) { outline: 2px solid var(--rose); outline-offset: 3px; }
+.ba-label { position: absolute; top: 12px; font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; font-weight: 500;
+  padding: 6px 10px; border-radius: 999px; background: color-mix(in srgb, var(--paper) 88%, transparent); color: var(--forest); pointer-events: none; }
+.ba-label.l { left: 12px; } .ba-label.r { right: 12px; }
+.ba figcaption { font: italic 400 1.35rem/1.2 var(--font-display); color: var(--forest); }
+
+/* About */
+.about-grid { display: grid; gap: clamp(36px, 6vw, 80px); align-items: center; }
+@media (min-width: 900px) { .about-grid { grid-template-columns: 0.8fr 1.2fr; } }
+.about-visual { position: relative; width: min(100%, 420px); justify-self: center; }
+.about-visual .arch { aspect-ratio: 2 / 3; }
+.about-quote {
+  position: absolute; right: -8px; bottom: 28px; max-width: 250px; background: var(--forest); color: var(--on-forest);
+  padding: 18px 20px; border-radius: 16px; font: italic 400 1.2rem/1.3 var(--font-display);
+}
+@media (min-width: 900px) { .about-quote { right: -48px; } }
+.about-copy { display: grid; gap: 20px; min-width: 0; }
+.about-copy h2 { font-size: var(--step-3); }
+.about-copy p { color: var(--muted); max-width: 60ch; }
+.values { list-style: none; padding: 0; margin: 10px 0 0; display: grid; gap: 0; border-top: 1px solid var(--line); }
+.values li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 0.98rem; }
+.values svg { width: 26px; height: 26px; color: var(--gold); }
+
+/* Steps */
+.steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; counter-reset: step; }
+@media (min-width: 820px) { .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; } }
+.steps li { counter-increment: step; display: grid; gap: 10px; padding: 26px 24px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--paper); align-content: start; }
+.steps li::before { content: counter(step); font: italic 300 3.4rem/0.9 var(--font-display); color: var(--gold); }
+.steps h3 { font-size: 1.7rem; color: var(--forest); }
+.steps p { color: var(--muted); font-size: 0.95rem; }
+
+/* Prices band */
+.prices { background: var(--forest); color: var(--on-forest); }
+.prices .eyebrow { color: var(--on-forest); }
+.prices .section-head p { color: var(--on-forest-muted); }
+.prices h2 em { color: #E3B9A9; }
+.price-grid { display: grid; gap: clamp(36px, 5vw, 64px); align-items: start; }
+@media (min-width: 920px) { .price-grid { grid-template-columns: 1fr 1fr; } }
+.price-list { list-style: none; margin: 0; padding: 0; display: grid; }
+.price-list li { display: grid; grid-template-columns: minmax(0, auto) 1fr auto; align-items: baseline; gap: 12px; padding: 16px 0; border-bottom: 1px solid rgba(244, 234, 227, .14); }
+.price-list .name { font: 400 1.45rem/1.15 var(--font-display); min-width: 0; }
+.price-list .name small { display: block; font: 400 0.78rem/1.4 var(--font-body); color: var(--on-forest-muted); letter-spacing: 0.04em; margin-top: 4px; }
+.price-list .dots { border-bottom: 1px dotted rgba(244, 234, 227, .35); transform: translateY(-6px); }
+.price-list .val { font: 500 1.3rem/1 var(--font-display); white-space: nowrap; font-variant-numeric: tabular-nums; }
+.price-list .val.soft { font: 400 0.85rem/1.3 var(--font-body); color: var(--on-forest-muted); }
+.stebby { display: grid; gap: 16px; padding: 26px; border-radius: var(--radius); border: 1px solid rgba(244, 234, 227, .2); background: rgba(244, 234, 227, .05); }
+.stebby h3 { font-size: 1.8rem; }
+.stebby p { color: var(--on-forest-muted); }
+.stebby .btn { --bg: var(--on-forest); --fg: var(--forest); justify-self: start; }
+.stebby .btn:hover { --bg: #fff; }
+.price-note { font-size: 0.88rem; color: var(--on-forest-muted); margin-top: 18px; max-width: 60ch; }
+
+/* Reviews */
+.reviews { display: grid; gap: 22px; grid-template-columns: 1fr; }
+@media (min-width: 860px) { .reviews { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+.review { margin: 0; display: grid; gap: 18px; align-content: space-between; padding: 30px 26px; border-radius: var(--radius); background: var(--paper); border: 1px solid var(--line); }
+.review blockquote { margin: 0; font: italic 400 1.45rem/1.35 var(--font-display); color: var(--ink); }
+.review blockquote::before { content: "“"; display: block; font: 400 3.6rem/0.6 var(--font-display); color: var(--gold); margin-bottom: 10px; }
+.review figcaption { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--muted); }
+.stars { color: var(--gold); letter-spacing: 3px; font-size: 0.9rem; }
+
+/* FAQ */
+.faq-grid { display: grid; gap: clamp(28px, 5vw, 64px); }
+@media (min-width: 920px) { .faq-grid { grid-template-columns: 0.8fr 1.2fr; } }
+.faq { border-top: 1px solid var(--line); }
+.faq details { border-bottom: 1px solid var(--line); }
+.faq summary {
+  list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 18px;
+  padding: 20px 0; font: 400 1.4rem/1.25 var(--font-display); color: var(--forest);
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after { content: ""; flex: none; width: 30px; height: 30px; border-radius: 50%; border: 1px solid var(--line);
+  background: linear-gradient(var(--forest), var(--forest)) center / 11px 1px no-repeat, linear-gradient(var(--forest), var(--forest)) center / 1px 11px no-repeat;
+  transition: transform .25s ease; }
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq details p { padding: 0 44px 22px 0; color: var(--muted); }
+
+/* Contact */
+.contact-card { display: grid; gap: 0; border-radius: 28px; overflow: hidden; background: var(--paper); border: 1px solid var(--line); }
+@media (min-width: 900px) { .contact-card { grid-template-columns: 1.1fr 0.9fr; } }
+.contact-main { padding: clamp(28px, 5vw, 56px); display: grid; gap: 22px; align-content: start; min-width: 0; }
+.contact-main h2 { font-size: var(--step-3); }
+.contact-list { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+.contact-list li { display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 14px; align-items: center; padding: 12px 0; border-bottom: 1px solid var(--line); }
+.contact-list li:last-child { border-bottom: 0; }
+.contact-list .ic { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; background: var(--blush); color: var(--forest); }
+.contact-list .ic svg { width: 18px; height: 18px; }
+.contact-list small { display: block; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.contact-list a, .contact-list span.v { text-decoration: none; font-size: 1.05rem; color: var(--ink); overflow-wrap: anywhere; }
+.contact-list a:hover { color: var(--rose); }
+.contact-actions { display: flex; flex-wrap: wrap; gap: 12px; }
+.contact-map { position: relative; min-height: 360px; background: var(--petal); }
+.contact-map iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+.map-fallback { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; text-decoration: none; color: var(--forest); font: italic 400 1.4rem/1.2 var(--font-display); }
+.map-fallback svg { width: 34px; height: 34px; color: var(--rose); }
+
+/* Question form: hairline fields with floating serif labels and service chips, on the forest band */
+.ask { position: relative; overflow: hidden; margin-top: 22px; display: grid; gap: clamp(32px, 5vw, 72px); padding: clamp(32px, 6vw, 72px) clamp(22px, 6vw, 72px); border-radius: 28px; background: var(--forest); color: var(--on-forest); isolation: isolate; }
+.ask::before { content: ""; position: absolute; z-index: -1; width: 560px; height: 560px; left: -220px; bottom: -260px; border-radius: 50%; border: 1px solid rgba(180, 143, 90, .45); }
+.ask::after { content: ""; position: absolute; z-index: -1; width: 9px; height: 9px; left: 300px; bottom: 268px; border-radius: 50%; background: var(--gold); }
+.ask::before, .ask::after { display: none; }
+@media (min-width: 900px) { .ask { grid-template-columns: 0.8fr 1.2fr; } .ask::before, .ask::after { display: block; } }
+.ask-intro { display: grid; gap: 18px; align-content: start; min-width: 0; }
+.ask-intro .eyebrow { color: var(--on-forest); }
+.ask-intro h2 { font-size: var(--step-3); font-weight: 300; }
+.ask-intro h2 em { color: #E3B9A9; }
+.ask-intro p { color: var(--on-forest-muted); max-width: 40ch; }
+.ask-alt { list-style: none; padding: 20px 0 0; margin: 8px 0 0; display: grid; gap: 14px; border-top: 1px solid rgba(244, 234, 227, .16); }
+.ask-alt small { display: block; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--on-forest-muted); margin-bottom: 4px; }
+.ask-alt li { display: flex; gap: 14px; align-items: center; }
+.ask-alt svg { width: 18px; height: 18px; color: var(--gold); flex: none; }
+.ask-alt a { color: var(--on-forest); text-decoration: none; font: italic 400 1.35rem/1.2 var(--font-display); }
+.ask-alt a:hover { color: #E3B9A9; }
+
+.ask-form { display: grid; gap: 30px 32px; grid-template-columns: 1fr; min-width: 0; align-content: start; }
+@media (min-width: 600px) { .ask-form { grid-template-columns: 1fr 1fr; } .ask-form .wide { grid-column: 1 / -1; } }
+.field { position: relative; min-width: 0; padding-top: 18px; }
+.field input, .field textarea {
+  width: 100%; display: block; font: 400 1.05rem/1.5 var(--font-body); color: var(--on-forest); background: transparent;
+  border: 0; border-bottom: 1px solid rgba(244, 234, 227, .3); border-radius: 0; padding: 8px 0 10px; outline: none;
+}
+.field textarea { resize: none; min-height: 112px; }
+.field label {
+  position: absolute; left: 0; top: 24px; pointer-events: none; transform-origin: left top; white-space: nowrap;
+  font: italic 400 1.4rem/1.2 var(--font-display); color: var(--on-forest-muted); transition: transform .25s ease, color .25s ease;
+}
+.field input:focus + label, .field input:not(:placeholder-shown) + label,
+.field textarea:focus + label, .field textarea:not(:placeholder-shown) + label { transform: translateY(-26px) scale(.72); color: #E3B9A9; }
+.field .line { position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--gold); transform: scaleX(0); transform-origin: left; transition: transform .35s ease; }
+.field input:focus ~ .line, .field textarea:focus ~ .line { transform: scaleX(1); }
+.field.invalid input, .field.invalid textarea { border-bottom-color: #E3B9A9; }
+.field.invalid label { color: #E3B9A9; }
+.req { color: var(--gold); font-style: normal; }
+.count { position: absolute; right: 0; top: 0; font-size: 0.72rem; letter-spacing: .06em; color: var(--on-forest-muted); font-variant-numeric: tabular-nums; }
+
+.chips-field { border: 0; padding: 0; margin: 0; min-width: 0; }
+.chips-field legend { padding: 0; margin-bottom: 14px; font: italic 400 1.4rem/1.2 var(--font-display); color: var(--on-forest-muted); }
+.chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.chip { position: relative; }
+.chip input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.chip span { display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 999px; border: 1px solid rgba(244, 234, 227, .28); font-size: 0.9rem; color: var(--on-forest); transition: background .2s ease, color .2s ease, border-color .2s ease; }
+.chip span::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); display: none; }
+.chip:hover span { border-color: var(--gold); }
+.chip input:checked + span { background: var(--blush); color: var(--forest); border-color: var(--blush); }
+.chip input:checked + span::before { display: block; }
+.chip input:focus-visible + span { outline: 2px solid #E3B9A9; outline-offset: 2px; }
+
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+.consent { position: relative; display: flex; gap: 14px; align-items: flex-start; font-size: 0.9rem; color: var(--on-forest-muted); cursor: pointer; line-height: 1.5; }
+.consent input { position: absolute; opacity: 0; width: 22px; height: 22px; margin: 0; }
+.consent .box { flex: none; width: 22px; height: 22px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center; margin-top: 1px; transition: background .2s ease; }
+.consent .box svg { width: 13px; height: 13px; color: var(--forest); opacity: 0; transform: scale(.5); transition: .2s ease; }
+.consent input:checked + .box { background: var(--gold); }
+.consent input:checked + .box svg { opacity: 1; transform: none; }
+.consent input:focus-visible + .box { outline: 2px solid #E3B9A9; outline-offset: 3px; }
+.consent.invalid { color: #E3B9A9; }
+.consent.invalid .box { border-color: #E3B9A9; }
+
+.form-foot { display: flex; flex-wrap: wrap; gap: 16px 24px; align-items: center; }
+.send {
+  display: inline-flex; align-items: center; gap: 16px; padding: 8px 8px 8px 28px; min-height: 60px; border-radius: 999px; border: 0; cursor: pointer;
+  background: var(--blush); color: var(--forest); font: italic 400 1.45rem/1 var(--font-display); transition: background .2s ease;
+}
+.send .arr { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--forest); color: var(--on-forest); transition: transform .3s ease; }
+.send .arr svg { width: 18px; height: 18px; }
+.send:hover { background: #fff; }
+.send:hover .arr { transform: rotate(-45deg); }
+.send[disabled] { opacity: .65; cursor: progress; }
+.form-status { font-size: 0.92rem; color: var(--on-forest); min-width: 0; flex: 1 1 220px; }
+.form-status.err { color: #E3B9A9; }
+.form-done { display: grid; gap: 14px; align-content: center; justify-items: start; padding: clamp(28px, 4vw, 44px); border-radius: 22px; border: 1px solid rgba(180, 143, 90, .5); }
+.form-done .seal { width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--gold); display: grid; place-items: center; color: var(--gold); }
+.form-done .seal svg { width: 26px; height: 26px; }
+.form-done h3 { font-size: 2.4rem; font-weight: 300; }
+.form-done p { color: var(--on-forest-muted); max-width: 44ch; }
+
+/* Footer */
+.footer { padding-block: 40px 48px; font-size: 0.85rem; color: var(--muted); }
+.footer-row { display: flex; flex-wrap: wrap; gap: 14px 28px; align-items: center; justify-content: space-between; border-top: 1px solid var(--line); padding-top: 28px; }
+.footer .logo { height: 40px; }
+.footer a { text-decoration: none; }
+.footer a:hover { color: var(--rose); }
+.badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); }
+.badge svg { width: 14px; height: 14px; color: var(--gold); }
+
+/* Mobile booking bar */
+.mbar {
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; display: flex; gap: 10px; align-items: center;
+  padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));
+  background: color-mix(in srgb, var(--paper) 92%, transparent); backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-top: 1px solid var(--line); transform: translateY(110%); transition: transform .35s ease;
+}
+.mbar.show { transform: none; }
+.mbar .btn { flex: 1; }
+.mbar .round { width: 52px; height: 52px; flex: none; border-radius: 50%; display: grid; place-items: center; border: 1px solid var(--forest); color: var(--forest); text-decoration: none; background: transparent; }
+.mbar .round svg { width: 20px; height: 20px; }
+@media (min-width: 980px) { .mbar { display: none; } }
+@media (max-width: 979px) { .footer { padding-bottom: 110px; } }
+
+/* Booking dialog */
+.sheet {
+  border: 0; padding: 0; margin: auto auto 0; width: 100%; max-width: 100%; max-height: 92vh; border-radius: 26px 26px 0 0;
+  background: var(--paper); color: var(--ink); box-shadow: 0 -20px 60px rgba(30, 58, 50, .25);
+}
+.sheet::backdrop { background: rgba(30, 40, 36, .45); backdrop-filter: blur(3px); }
+@media (min-width: 640px) { .sheet { margin: auto; max-width: 480px; border-radius: 26px; } }
+@media (prefers-reduced-motion: no-preference) { .sheet[open] { animation: rise .35s ease both; } }
+.sheet-inner { padding: 26px 22px calc(22px + env(safe-area-inset-bottom, 0px)); display: grid; gap: 18px; }
+.sheet-top { display: flex; justify-content: space-between; align-items: start; gap: 12px; }
+.sheet h2 { font-size: 2.2rem; color: var(--forest); }
+.sheet-service { font-size: 0.85rem; color: var(--rose); margin-top: 6px; }
+.sheet-service[hidden] { display: none; }
+.x { width: 40px; height: 40px; flex: none; border-radius: 50%; border: 1px solid var(--line); background: transparent; cursor: pointer; display: grid; place-items: center; color: var(--forest); }
+.x svg { width: 18px; height: 18px; }
+.opts { display: grid; gap: 10px; }
+.opt { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; gap: 14px; align-items: center; padding: 14px; border-radius: 16px; border: 1px solid var(--line); text-decoration: none; color: var(--ink); background: var(--blush); transition: border-color .2s ease, background .2s ease; }
+.opt:hover { border-color: var(--gold); background: var(--paper); }
+.opt .ic { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; background: var(--forest); color: var(--on-forest); }
+.opt .ic svg { width: 20px; height: 20px; }
+.opt strong { display: block; font-weight: 500; }
+.opt span.d { display: block; font-size: 0.85rem; color: var(--muted); overflow-wrap: anywhere; }
+.opt .go { width: 18px; height: 18px; color: var(--muted); }
+.copy { border: 1px solid var(--line); background: var(--paper); color: var(--forest); border-radius: 999px; padding: 8px 12px; font: 500 0.75rem/1 var(--font-body); cursor: pointer; }
+.sheet-note { font-size: 0.82rem; color: var(--muted); text-align: center; }
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></symbol>
+  <symbol id="i-insta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".6" fill="currentColor"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+  <symbol id="i-ticket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8a2 2 0 0 0 2-2h14a2 2 0 0 0 2 2v2a2 2 0 0 0 0 4v2a2 2 0 0 0-2 2H5a2 2 0 0 0-2-2v-2a2 2 0 0 0 0-4z"/><path d="M14 6v12" stroke-dasharray="2 2"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 2.5 2.5L16 9.5"/></symbol>
+  <symbol id="i-leaf" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20C4 11 10 5 20 4c-1 10-7 16-16 16z"/><path d="M4 20 14 10"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 4.5 6v6c0 4.5 3.2 7.8 7.5 9 4.3-1.2 7.5-4.5 7.5-9V6z"/><path d="m9 12 2 2 4-4"/></symbol>
+  <symbol id="i-spark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.5M15.5 15.5 18 18M18 6l-2.5 2.5M8.5 15.5 6 18"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8h16M4 16h16"/></symbol>
+  <symbol id="i-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></symbol>
+</svg>
+
+<header class="header" id="top">
+  <div class="wrap header-row">
+    <a class="brand" href="#top" aria-label="Soprano Studio">
+      <img class="logo" src="img/logo-text.png" alt="Soprano Studio · Aesthetic Laser Services" width="583" height="133">
+    </a>
+    <nav class="nav" aria-label="Menüü">
+      <a href="#teenused" data-i18n="nav.services">Teenused</a>
+      <a href="#tulemused" data-i18n="nav.results">Tulemused</a>
+      <a href="#meist" data-i18n="nav.about">Meist</a>
+      <a href="#hinnad" data-i18n="nav.prices">Hinnad</a>
+      <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Keel / Язык">
+      <button type="button" data-lang="et" aria-pressed="true">ET</button>
+      <button type="button" data-lang="ru" aria-pressed="false">RU</button>
+    </div>
+    <button class="btn btn-small" type="button" data-book data-i18n="cta.book">Broneeri aeg</button>
+    <button class="menu-btn" type="button" aria-expanded="false" aria-controls="mobile-nav" aria-label="Menüü"><svg class="i-menu"><use href="#i-menu"/></svg><svg class="i-close"><use href="#i-close"/></svg></button>
+  </div>
+  <nav class="wrap mobile-nav" id="mobile-nav" hidden>
+    <a href="#teenused" data-i18n="nav.services">Teenused</a>
+    <a href="#tulemused" data-i18n="nav.results">Tulemused</a>
+    <a href="#meist" data-i18n="nav.about">Meist</a>
+    <a href="#hinnad" data-i18n="nav.prices">Hinnad</a>
+    <a href="#kkk" data-i18n="nav.faq">KKK</a>
+    <a href="#kontakt" data-i18n="nav.contact">Kontakt</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <span class="eyebrow" data-i18n="hero.eyebrow">Esteetiline kosmeetika ja laser · Jõhvi</span>
+        <h1 data-i18n-html="hero.title">Tunne end enesekindlalt <em>oma kaunis nahas</em></h1>
+        <p class="hero-lead" data-i18n="hero.lead">Meditsiinilise haridusega kosmeetikud, kaasaegsed seadmed ja personaalne hooldusplaan. Laserepilatsioon, koorimised, nahadiagnostika ja näohooldused ühes hubases stuudios.</p>
+        <div class="hero-actions">
+          <button class="btn" type="button" data-book><span data-i18n="cta.book">Broneeri aeg</span><svg><use href="#i-arrow"/></svg></button>
+          <a class="btn btn-ghost" href="#teenused" data-i18n="cta.services">Vaata teenuseid</a>
+        </div>
+        <ul class="trust">
+          <li><svg><use href="#i-check"/></svg><span data-i18n="trust.1">Meditsiiniline haridus</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="trust.2">Sertifitseeritud seadmed</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="trust.3">Tasuta parkimine</span></li>
+          <li><svg><use href="#i-check"/></svg><span data-i18n="trust.4">Eesti ja vene keeles</span></li>
+        </ul>
+      </div>
+      <div class="hero-visual">
+        <svg class="ring" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+          <circle cx="50" cy="50" r="49.4" fill="none" stroke="currentColor" stroke-width=".25" vector-effect="non-scaling-stroke" style="stroke-width:1px"/>
+          <circle cx="93" cy="26" r="1.1" fill="currentColor"/>
+          <circle cx="6" cy="76" r="1.1" fill="currentColor"/>
+        </svg>
+        <div class="arch"><img src="img/hero.webp" alt="Kosmeetik Soprano Studios hoolduseks valmistumas" width="1000" height="1191" fetchpriority="high"></div>
+        <div class="float-chip chip-b"><strong>808 nm</strong><span data-i18n="chip.laser">Dioodlaser ENEKA PRO, kõigile fototüüpidele</span></div>
+        <div class="float-chip chip-a"><strong>Jan Marini</strong><span data-i18n="chip.brands">ja Image Skincare: professionaalne kosmeetika</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <span data-i18n="mq.1">Laserepilatsioon</span><span data-i18n="mq.2">Happekoorimine</span><span data-i18n="mq.3">3D nahadiagnostika</span><span data-i18n="mq.4">Endospheres Essensa</span><span data-i18n="mq.5">Näomassaaž</span><span data-i18n="mq.6">Aparaadilised hooldused</span>
+      <span data-i18n="mq.1">Laserepilatsioon</span><span data-i18n="mq.2">Happekoorimine</span><span data-i18n="mq.3">3D nahadiagnostika</span><span data-i18n="mq.4">Endospheres Essensa</span><span data-i18n="mq.5">Näomassaaž</span><span data-i18n="mq.6">Aparaadilised hooldused</span>
+    </div>
+  </div>
+
+  <section class="section" id="teenused">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="nav.services">Teenused</span>
+        <h2 data-i18n-html="svc.title">Hooldused, mis <em>annavad tulemuse</em></h2>
+        <p data-i18n="svc.lead">Iga hooldus algab vestlusest ja naha hindamisest. Nii valime just sinu nahale sobiva lahenduse.</p>
+      </div>
+      <div class="cards">
+        <article class="card">
+          <div class="card-media"><img src="img/laser.webp" alt="Laserepilatsioon jalal" loading="lazy" width="800" height="465"></div>
+          <div class="card-body">
+            <span class="tag" data-i18n="c1.tag">Keha ja nägu</span>
+            <h3 data-i18n="c1.t">Laserepilatsioon</h3>
+            <p data-i18n="c1.p">Uue põlvkonna dioodlaser Termosalud ENEKA PRO eemaldab karvad kõigilt naha fototüüpidelt.</p>
+            <ul class="ticks">
+              <li data-i18n="c1.b1">Sobib aastaringselt, ka päevitunud nahale</li>
+              <li data-i18n="c1.b2">Safiirotsiku kontaktjahutus: mugav ja ohutu</li>
+              <li data-i18n="c1.b3">Eemaldab ka peenikesed karvad</li>
+            </ul>
+            <div class="card-foot">
+              <span class="price" data-i18n="price.zone">Hind tsooni järgi</span>
+              <button class="btn btn-small" type="button" data-book data-i18n="cta.short">Broneeri</button>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="img/peel.webp" alt="Näo koorimine" loading="lazy" width="960" height="800"></div>
+          <div class="card-body">
+            <span class="tag" data-i18n="c2.tag">Puhas ja ühtlane nahk</span>
+            <h3 data-i18n="c2.t">Näo koorimine</h3>
+            <p data-i18n="c2.p">Happe-, sügavpuhastav, pigmentatsioonivastane ja kerge koorimine. Tugevuse valime sinu naha järgi.</p>
+            <ul class="ticks">
+              <li data-i18n="c2.b1">Akne ja põletikud</li>
+              <li data-i18n="c2.b2">Pigmentatsioon ja roosacea</li>
+              <li data-i18n="c2.b3">Kollageeni tootmise stimuleerimine</li>
+            </ul>
+            <div class="card-foot">
+              <span class="price" data-i18n="price.consult">Hind konsultatsioonil</span>
+              <button class="btn btn-small" type="button" data-book data-i18n="cta.short">Broneeri</button>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="img/diagnostics.webp" alt="Nahadiagnostika seadmega" loading="lazy" width="800" height="560"></div>
+          <div class="card-body">
+            <span class="tag" data-i18n="c3.tag">Hea algus</span>
+            <h3 data-i18n="c3.t">Nahadiagnostika</h3>
+            <p data-i18n="c3.p">3D-näodiagnostika näitab niisutust, poore, rasueritust ja tundlikkust. Tulemuste põhjal koostame personaalse hooldusplaani.</p>
+            <ul class="ticks">
+              <li data-i18n="c3.b1">Tundlikkuse analüüs</li>
+              <li data-i18n="c3.b2">Rasuerituse analüüs</li>
+              <li data-i18n="c3.b3">Nahakahjustuste analüüs</li>
+            </ul>
+            <div class="card-foot">
+              <span class="price" data-i18n="price.consult">Hind konsultatsioonil</span>
+              <button class="btn btn-small" type="button" data-book data-i18n="cta.short">Broneeri</button>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="img/facial.webp" alt="Aparaadiline näohooldus maskiga" loading="lazy" width="911" height="800"></div>
+          <div class="card-body">
+            <span class="tag" data-i18n="c4.tag">Sära ja niisutus</span>
+            <h3 data-i18n="c4.t">Aparaadilised näohooldused</h3>
+            <p data-i18n="c4.p">Professionaalsed hooldused Jan Marini, Image Skincare ja Biopeptix toodetega. Nahk on puhas, niisutatud ja särav.</p>
+            <ul class="ticks">
+              <li data-i18n="c4.b1">Sügavpuhastus</li>
+              <li data-i18n="c4.b2">Niisutus ja taastamine</li>
+              <li data-i18n="c4.b3">Noorendav toime</li>
+            </ul>
+            <div class="card-foot">
+              <span class="price" data-i18n="price.consult">Hind konsultatsioonil</span>
+              <button class="btn btn-small" type="button" data-book data-i18n="cta.short">Broneeri</button>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="img/endospheres.webp" alt="Näo ja kaela massaaž" loading="lazy" width="960" height="800"></div>
+          <div class="card-body">
+            <span class="tag" data-i18n="c5.tag">Nägu ja keha</span>
+            <h3>Endospheres Essensa</h3>
+            <p data-i18n="c5.p">Aparaadiline mikrovibratsioonimassaaž: lümfidrenaaž, lifting ja kehakuju korrigeerimine. Ilma valu ja süstideta.</p>
+            <ul class="ticks">
+              <li data-i18n="c5.b1">Tunned mõju juba esimestest kordadest</li>
+              <li data-i18n="c5.b2">Vähendab turset ja mahtu</li>
+              <li data-i18n="c5.b3">Tselluliidivastane toime</li>
+            </ul>
+            <div class="card-foot">
+              <span class="price"><span data-i18n="price.from">alates</span> 50 €</span>
+              <button class="btn btn-small" type="button" data-book data-i18n="cta.short">Broneeri</button>
+            </div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="card-media"><img src="img/massage.webp" alt="Klassikaline näomassaaž" loading="lazy" width="800" height="560"></div>
+          <div class="card-body">
+            <span class="tag" data-i18n="c6.tag">Lõõgastus</span>
+            <h3 data-i18n="c6.t">Klassikaline näomassaaž</h3>
+            <p data-i18n="c6.p">Käsitsi tehtav massaaž lõdvestab näolihaseid, parandab vereringet ja annab nahale värske ilme.</p>
+            <ul class="ticks">
+              <li data-i18n="c6.b1">Toonus ja sära</li>
+              <li data-i18n="c6.b2">Vähem turset</li>
+              <li data-i18n="c6.b3">Sügav lõõgastus</li>
+            </ul>
+            <div class="card-foot">
+              <span class="price">30 €</span>
+              <button class="btn btn-small" type="button" data-book data-i18n="cta.short">Broneeri</button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section results" id="tulemused">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="nav.results">Tulemused</span>
+        <h2 data-i18n-html="res.title">Enne ja <em>pärast</em></h2>
+        <p data-i18n="res.lead">Meie klientide tegelikud tulemused. Lohista liugurit, et võrrelda.</p>
+      </div>
+      <div class="ba-grid">
+        <figure class="ba">
+          <div class="ba-frame">
+            <img src="img/ba1-after.webp" alt="Pärast" loading="lazy" width="1000" height="489">
+            <img class="before" src="img/ba1-before.webp" alt="Enne" loading="lazy" width="1000" height="489">
+            <span class="ba-label l" data-i18n="res.before">Enne</span><span class="ba-label r" data-i18n="res.after">Pärast</span>
+            <span class="ba-handle"></span>
+            <input type="range" id="ba1" min="0" max="100" value="50" aria-label="Enne / pärast">
+          </div>
+          <figcaption data-i18n="res.1">Nähtavad veresooned</figcaption>
+        </figure>
+        <figure class="ba">
+          <div class="ba-frame">
+            <img src="img/ba2-after.webp" alt="Pärast" loading="lazy" width="1000" height="403">
+            <img class="before" src="img/ba2-before.webp" alt="Enne" loading="lazy" width="1000" height="403">
+            <span class="ba-label l" data-i18n="res.before">Enne</span><span class="ba-label r" data-i18n="res.after">Pärast</span>
+            <span class="ba-handle"></span>
+            <input type="range" id="ba2" min="0" max="100" value="50" aria-label="Enne / pärast">
+          </div>
+          <figcaption data-i18n="res.2">Pigmentatsioon</figcaption>
+        </figure>
+        <figure class="ba">
+          <div class="ba-frame">
+            <img src="img/ba3-after.webp" alt="Pärast" loading="lazy" width="1000" height="519">
+            <img class="before" src="img/ba3-before.webp" alt="Enne" loading="lazy" width="1000" height="519">
+            <span class="ba-label l" data-i18n="res.before">Enne</span><span class="ba-label r" data-i18n="res.after">Pärast</span>
+            <span class="ba-handle"></span>
+            <input type="range" id="ba3" min="0" max="100" value="50" aria-label="Enne / pärast">
+          </div>
+          <figcaption data-i18n="res.3">Akne ja põletikud</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="meist">
+    <div class="wrap about-grid">
+      <div class="about-visual">
+        <div class="arch"><img src="img/about.webp" alt="Soprano Studio kosmeetik" loading="lazy" width="533" height="800"></div>
+        <p class="about-quote" data-i18n="about.quote">Soovime, et iga klient tunneks end oma nahas enesekindlalt ja kaunilt.</p>
+      </div>
+      <div class="about-copy">
+        <span class="eyebrow" data-i18n="nav.about">Meist</span>
+        <h2 data-i18n-html="about.title">Hubane stuudio, kus <em>sinu nahk on esikohal</em></h2>
+        <p data-i18n="about.p1">Soprano Studio on Jõhvi kosmeetikastuudio, kus töötavad meditsiinilise haridusega kosmeetikud. Meie eriala on esteetiline kosmeetika, laserepilatsioon ning aparaadilised ja käsitsi tehtavad massaažid.</p>
+        <p data-i18n="about.p2">Me ei tee kõigile ühesugust hooldust. Enne protseduuri uurime sinu nahka, räägime eesmärkidest ja koostame plaani, mis toob tulemuse.</p>
+        <ul class="values">
+          <li><svg><use href="#i-leaf"/></svg><span data-i18n="about.v1">Meditsiiniline haridus ja praktiline kogemus</span></li>
+          <li><svg><use href="#i-spark"/></svg><span data-i18n="about.v2">Professionaalne kosmeetika: Jan Marini, Image Skincare, Biopeptix, Medexy</span></li>
+          <li><svg><use href="#i-shield"/></svg><span data-i18n="about.v3">Sertifitseeritud seadmed ja kõik sanitaarnõuded täidetud</span></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="steps.eyebrow">Kuidas see käib</span>
+        <h2 data-i18n-html="steps.title">Kolm lihtsat <em>sammu</em></h2>
+      </div>
+      <ol class="steps">
+        <li><h3 data-i18n="s1.t">Broneeri aeg</h3><p data-i18n="s1.p">Helista, kirjuta Instagramis või osta pilet Stebby kaudu.</p></li>
+        <li><h3 data-i18n="s2.t">Konsultatsioon</h3><p data-i18n="s2.p">Hindame naha seisundit, räägime sinu soovidest ja valime sobiva hoolduse.</p></li>
+        <li><h3 data-i18n="s3.t">Hooldus ja koduhooldus</h3><p data-i18n="s3.p">Teeme protseduuri ja anname soovitused, kuidas tulemust kodus hoida.</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="section prices" id="hinnad">
+    <div class="wrap price-grid">
+      <div>
+        <div class="section-head" style="margin-bottom:28px">
+          <span class="eyebrow" data-i18n="nav.prices">Hinnad</span>
+          <h2 data-i18n-html="prices.title">Selged <em>hinnad</em></h2>
+        </div>
+        <ul class="price-list">
+          <li><span class="name">Endospheres Essensa<small data-i18n="pr.face30">Nägu · 30 min</small></span><span class="dots"></span><span class="val">50 €</span></li>
+          <li><span class="name">Endospheres Essensa<small data-i18n="pr.face60">Nägu · 60 min</small></span><span class="dots"></span><span class="val">70 €</span></li>
+          <li><span class="name">Endospheres Essensa<small data-i18n="pr.body60">Keha · 60 min</small></span><span class="dots"></span><span class="val">70 €</span></li>
+          <li><span class="name" data-i18n="c6.t">Klassikaline näomassaaž</span><span class="dots"></span><span class="val">30 €</span></li>
+          <li><span class="name" data-i18n="c1.t">Laserepilatsioon</span><span class="dots"></span><span class="val soft" data-i18n="price.zone">Hind tsooni järgi</span></li>
+          <li><span class="name" data-i18n="pr.peels">Koorimised ja näohooldused</span><span class="dots"></span><span class="val soft" data-i18n="price.consult">Hind konsultatsioonil</span></li>
+        </ul>
+        <p class="price-note" data-i18n="prices.note">Laserepilatsiooni, koorimise ja näohoolduse hind sõltub tsoonist ja naha vajadustest. Täpse hinna ütleme enne protseduuri.</p>
+      </div>
+      <aside class="stebby">
+        <span class="eyebrow">Stebby</span>
+        <h3 data-i18n="stebby.t">Osta pilet veebis</h3>
+        <p data-i18n="stebby.p">Endospheres'i ja klassikalise näomassaaži saad ette tasuda Stebby kaudu. Vali teenus, osta pilet ja lepi aeg kokku telefoni või Instagrami teel.</p>
+        <a class="btn" href="https://app.stebby.eu/pos/soprano.services" target="_blank" rel="noopener"><span data-i18n="stebby.cta">Ava Stebbys</span><svg><use href="#i-arrow"/></svg></a>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section" id="arvustused">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="rev.eyebrow">Arvustused</span>
+        <h2 data-i18n-html="rev.title">Mida kliendid <em>ütlevad</em></h2>
+      </div>
+      <div class="reviews">
+        <figure class="review"><blockquote data-i18n="rev.1">Täiesti imeline kogemus! Minu nahk pole kunagi varem nii särav ja nooruslik olnud. Tänan!</blockquote><figcaption><span class="stars" aria-label="5/5">★★★★★</span>Kati L.</figcaption></figure>
+        <figure class="review"><blockquote data-i18n="rev.2">Nahadiagnostika aitas mul täpselt teada saada, millised tooted sobivad minu nahatüübile. Tulemused on märgatavad. Soovitan soojalt!</blockquote><figcaption><span class="stars" aria-label="5/5">★★★★★</span>Liis H.</figcaption></figure>
+        <figure class="review"><blockquote data-i18n="rev.3">Näomassaaž oli nii lõõgastav ja nahk jäi nii siidine. Aitäh!</blockquote><figcaption><span class="stars" aria-label="5/5">★★★★★</span>Laura B.</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kkk" style="padding-top:0">
+    <div class="wrap faq-grid">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="nav.faq">KKK</span>
+        <h2 data-i18n-html="faq.title">Korduma kippuvad <em>küsimused</em></h2>
+        <p data-i18n="faq.lead">Ei leidnud vastust? Kirjuta meile Instagramis või helista.</p>
+      </div>
+      <div class="faq">
+        <details><summary data-i18n="q1">Kas aeg tuleb ette broneerida?</summary><p data-i18n="a1">Jah, töötame ainult eelneva broneeringuga. Broneeri telefoni teel, Instagrami otsesõnumis või Stebby kaudu.</p></details>
+        <details><summary data-i18n="q2">Kuidas broneeringut tühistada?</summary><p data-i18n="a2">Tühista vähemalt 24 tundi enne aega. Hilisema tühistamise korral loetakse seanss toimunuks.</p></details>
+        <details><summary data-i18n="q3">Kas laserepilatsiooni saab teha suvel?</summary><p data-i18n="a3">Jah. ENEKA PRO dioodlaser sobib aastaringselt, ka päevitunud nahale. Halle karvu laser ei eemalda.</p></details>
+        <details><summary data-i18n="q4">Mida pean enne esimest külastust teatama?</summary><p data-i18n="a4">Anna teada kroonilistest haigustest, rasedusest või muudest terviseeripäradest. Nii valime ohutu ja tõhusa hoolduse.</p></details>
+        <details><summary data-i18n="q5">Kas saan maksta Stebbyga?</summary><p data-i18n="a5">Jah. Endospheres'i ja klassikalise näomassaaži pileti saad osta Stebby rakenduses või veebis. Pärast ostu lepi külastuse aeg kokku telefoni või Instagrami teel.</p></details>
+        <details><summary data-i18n="q6">Kas parkimine on olemas?</summary><p data-i18n="a6">Jah, tasuta parkimine on sissepääsu kõrval. Täpse juhise saadame broneeringu kinnitamisel.</p></details>
+        <details><summary data-i18n="q7">Mis keeles teenindate?</summary><p data-i18n="a7">Eesti ja vene keeles.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="kontakt" style="padding-top:0">
+    <div class="wrap">
+      <div class="contact-card">
+        <div class="contact-main">
+          <span class="eyebrow" data-i18n="nav.contact">Kontakt</span>
+          <h2 data-i18n-html="contact.title">Ootame sind <em>Jõhvis</em></h2>
+          <ul class="contact-list">
+            <li><span class="ic"><svg><use href="#i-pin"/></svg></span><div><small data-i18n="contact.addr">Aadress</small><a href="https://www.google.com/maps/search/?api=1&amp;query=Rakvere%2019%2C%20J%C3%B5hvi" target="_blank" rel="noopener">Rakvere 19, Jõhvi</a></div></li>
+            <li><span class="ic"><svg><use href="#i-phone"/></svg></span><div><small data-i18n="contact.phone">Telefon</small><a href="tel:+37256824792">+372 5682 4792</a></div></li>
+            <li><span class="ic"><svg><use href="#i-insta"/></svg></span><div><small>Instagram</small><a href="https://www.instagram.com/soprano_services/" target="_blank" rel="noopener">@soprano_services</a></div></li>
+            <li><span class="ic"><svg><use href="#i-mail"/></svg></span><div><small data-i18n="contact.email">E-post</small><a href="mailto:org.lidia@gmail.com">org.lidia@gmail.com</a></div></li>
+          </ul>
+          <div class="contact-actions">
+            <button class="btn" type="button" data-book><span data-i18n="cta.book">Broneeri aeg</span><svg><use href="#i-arrow"/></svg></button>
+            <a class="btn btn-ghost" href="https://www.google.com/maps/search/?api=1&amp;query=Rakvere%2019%2C%20J%C3%B5hvi" target="_blank" rel="noopener" data-i18n="contact.map">Ava kaardil</a>
+          </div>
+        </div>
+        <div class="contact-map">
+          <a class="map-fallback" href="https://www.google.com/maps/search/?api=1&amp;query=Rakvere%2019%2C%20J%C3%B5hvi" target="_blank" rel="noopener"><svg><use href="#i-pin"/></svg><span>Rakvere 19, Jõhvi</span></a>
+          <iframe title="Google Maps: Rakvere 19, Jõhvi" src="https://www.google.com/maps?q=Rakvere%2019%2C%20J%C3%B5hvi%2C%20Estonia&amp;z=16&amp;output=embed" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
+      </div>
+
+      <div class="ask" id="kusi">
+        <div class="ask-intro">
+          <span class="eyebrow" data-i18n="ask.eyebrow">Küsi meilt</span>
+          <h2 data-i18n-html="ask.title">Kas sul on <em>küsimus?</em></h2>
+          <p data-i18n="ask.lead">Kirjuta, mis sind huvitab: hooldus, hind või vastunäidustused. Kosmeetik vastab sulle telefoni või e-posti teel.</p>
+          <ul class="ask-alt">
+            <li><svg><use href="#i-phone"/></svg><div><small data-i18n="ask.call">Või helista</small><a href="tel:+37256824792">+372 5682 4792</a></div></li>
+            <li><svg><use href="#i-insta"/></svg><div><small data-i18n="ask.dm">Või kirjuta Instagramis</small><a href="https://www.instagram.com/soprano_services/" target="_blank" rel="noopener">@soprano_services</a></div></li>
+          </ul>
+        </div>
+        <form class="ask-form" id="ask-form" novalidate>
+          <div class="field">
+            <input id="f-name" name="name" type="text" autocomplete="name" required maxlength="100" placeholder=" ">
+            <label for="f-name"><span data-i18n="f.name">Nimi</span> <span class="req">*</span></label>
+            <span class="line"></span>
+          </div>
+          <div class="field">
+            <input id="f-phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" required maxlength="30" placeholder=" ">
+            <label for="f-phone"><span data-i18n="f.phone">Telefon</span> <span class="req">*</span></label>
+            <span class="line"></span>
+          </div>
+          <div class="field wide">
+            <input id="f-email" name="email" type="email" autocomplete="email" maxlength="120" placeholder=" ">
+            <label for="f-email" data-i18n="f.email">E-post (soovi korral)</label>
+            <span class="line"></span>
+          </div>
+          <fieldset class="chips-field wide">
+            <legend data-i18n="f.service">Mis sind huvitab?</legend>
+            <div class="chips">
+              <label class="chip"><input type="radio" name="service" id="sv-1" value="laser"><span data-i18n="sv.1">Laser</span></label>
+              <label class="chip"><input type="radio" name="service" id="sv-2" value="peel"><span data-i18n="sv.2">Koorimine</span></label>
+              <label class="chip"><input type="radio" name="service" id="sv-3" value="diagnostics"><span data-i18n="sv.3">Nahadiagnostika</span></label>
+              <label class="chip"><input type="radio" name="service" id="sv-4" value="facial"><span data-i18n="sv.4">Näohooldus</span></label>
+              <label class="chip"><input type="radio" name="service" id="sv-5" value="endospheres"><span>Endospheres</span></label>
+              <label class="chip"><input type="radio" name="service" id="sv-6" value="massage"><span data-i18n="sv.6">Näomassaaž</span></label>
+              <label class="chip"><input type="radio" name="service" id="sv-7" value="advice"><span data-i18n="sv.7">Vajan nõu</span></label>
+            </div>
+          </fieldset>
+          <div class="field wide">
+            <textarea id="f-msg" name="message" rows="4" required maxlength="800" placeholder=" "></textarea>
+            <label for="f-msg"><span data-i18n="f.msg">Sinu küsimus</span> <span class="req">*</span></label>
+            <span class="line"></span>
+            <span class="count"><span id="f-count">0</span> / 800</span>
+          </div>
+          <input class="hp" type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <label class="consent wide" for="f-consent">
+            <input id="f-consent" type="checkbox" required>
+            <span class="box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></svg></span>
+            <span data-i18n="f.consent">Nõustun, et minu andmeid kasutatakse ainult minu küsimusele vastamiseks.</span>
+          </label>
+          <div class="form-foot wide">
+            <button class="send" type="submit" id="f-submit"><span data-i18n="f.send">Saada küsimus</span><span class="arr"><svg><use href="#i-arrow"/></svg></span></button>
+            <p class="form-status" id="f-status" role="status" aria-live="polite"></p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-row">
+    <a class="brand" href="#top" aria-label="Soprano Studio"><img class="logo" src="img/logo-text.png" alt="Soprano Studio · Aesthetic Laser Services" width="583" height="133" loading="lazy"></a>
+    <a class="badge" href="https://evul.ee/liikmed/16030010-SOPRANOS-OU/sertifikaat" target="_blank" rel="noopener"><svg><use href="#i-shield"/></svg><span data-i18n="footer.trusted">Usaldusväärne ettevõte</span></a>
+    <span>© 2026 SOPRANOS OÜ · Rakvere 19, Jõhvi</span>
+  </div>
+</footer>
+
+<div class="mbar" id="mbar">
+  <button class="btn" type="button" data-book data-i18n="cta.book">Broneeri aeg</button>
+  <a class="round" href="tel:+37256824792" aria-label="+372 5682 4792"><svg><use href="#i-phone"/></svg></a>
+  <a class="round" href="https://www.instagram.com/soprano_services/" target="_blank" rel="noopener" aria-label="Instagram"><svg><use href="#i-insta"/></svg></a>
+</div>
+
+<dialog class="sheet" id="book" aria-labelledby="book-title">
+  <div class="sheet-inner">
+    <div class="sheet-top">
+      <div>
+        <h2 id="book-title" data-i18n="cta.book">Broneeri aeg</h2>
+        <p class="sheet-service" id="book-service" hidden></p>
+      </div>
+      <button class="x" type="button" data-close aria-label="Sulge"><svg><use href="#i-close"/></svg></button>
+    </div>
+    <p style="color:var(--muted)" data-i18n="book.lead">Vali endale mugav viis. Töötame eelneva broneeringuga.</p>
+    <div class="opts">
+      <div class="opt">
+        <span class="ic"><svg><use href="#i-phone"/></svg></span>
+        <a href="tel:+37256824792" style="text-decoration:none;color:inherit"><strong data-i18n="book.call">Helista</strong><span class="d">+372 5682 4792</span></a>
+        <button class="copy" type="button" id="copy-phone" data-i18n="book.copy">Kopeeri</button>
+      </div>
+      <a class="opt" href="https://www.instagram.com/soprano_services/" target="_blank" rel="noopener">
+        <span class="ic"><svg><use href="#i-insta"/></svg></span>
+        <span><strong data-i18n="book.insta">Kirjuta Instagramis</strong><span class="d">@soprano_services</span></span>
+        <svg class="go"><use href="#i-arrow"/></svg>
+      </a>
+      <a class="opt" href="https://app.stebby.eu/pos/soprano.services" target="_blank" rel="noopener">
+        <span class="ic"><svg><use href="#i-ticket"/></svg></span>
+        <span><strong data-i18n="book.stebby">Osta pilet Stebby kaudu</strong><span class="d" data-i18n="book.stebby.d">Endospheres ja näomassaaž</span></span>
+        <svg class="go"><use href="#i-arrow"/></svg>
+      </a>
+      <a class="opt" href="mailto:org.lidia@gmail.com">
+        <span class="ic"><svg><use href="#i-mail"/></svg></span>
+        <span><strong data-i18n="contact.email">E-post</strong><span class="d">org.lidia@gmail.com</span></span>
+        <svg class="go"><use href="#i-arrow"/></svg>
+      </a>
+    </div>
+    <p class="sheet-note" data-i18n="book.note">Tühistamine vähemalt 24 tundi ette.</p>
+  </div>
+</dialog>
+
+<script>
+(function () {
+  var RU = {
+    "nav.services": "Услуги", "nav.results": "Результаты", "nav.about": "О нас", "nav.prices": "Цены", "nav.faq": "Вопросы", "nav.contact": "Контакты",
+    "cta.book": "Записаться", "cta.short": "Записаться", "cta.services": "Смотреть услуги",
+    "hero.eyebrow": "Эстетическая косметология и лазер · Йыхви",
+    "hero.title": "Почувствуйте уверенность <em>в своей красивой коже</em>",
+    "hero.lead": "Косметологи с медицинским образованием, современное оборудование и персональный план ухода. Лазерная эпиляция, пилинги, диагностика кожи и уходы за лицом в одной уютной студии.",
+    "trust.1": "Медицинское образование", "trust.2": "Сертифицированное оборудование", "trust.3": "Бесплатная парковка", "trust.4": "На русском и эстонском",
+    "chip.laser": "Диодный лазер ENEKA PRO для любого фототипа", "chip.brands": "и Image Skincare: профессиональная косметика",
+    "mq.1": "Лазерная эпиляция", "mq.2": "Кислотный пилинг", "mq.3": "3D-диагностика кожи", "mq.4": "Endospheres Essensa", "mq.5": "Массаж лица", "mq.6": "Аппаратные уходы",
+    "svc.title": "Процедуры, которые <em>дают результат</em>",
+    "svc.lead": "Каждая процедура начинается с беседы и оценки кожи. Так мы подбираем то, что подойдёт именно вашей коже.",
+    "c1.tag": "Тело и лицо", "c1.t": "Лазерная эпиляция", "c1.p": "Диодный лазер нового поколения Termosalud ENEKA PRO удаляет волосы на коже любого фототипа.",
+    "c1.b1": "Круглый год, даже на загорелой коже", "c1.b2": "Контактное охлаждение сапфировым наконечником: комфортно и безопасно", "c1.b3": "Справляется даже с тонкими волосками",
+    "c2.tag": "Чистая и ровная кожа", "c2.t": "Пилинги лица", "c2.p": "Кислотный, глубоко очищающий, против пигментации и мягкий пилинг. Силу подбираем под вашу кожу.",
+    "c2.b1": "Акне и воспаления", "c2.b2": "Пигментация и розацеа", "c2.b3": "Стимуляция выработки коллагена",
+    "c3.tag": "С чего начать", "c3.t": "Диагностика кожи", "c3.p": "3D-диагностика лица покажет увлажнённость, поры, работу сальных желёз и чувствительность. По результатам составим персональный план ухода.",
+    "c3.b1": "Анализ чувствительности", "c3.b2": "Анализ жирности кожи", "c3.b3": "Анализ повреждений кожи",
+    "c4.tag": "Сияние и увлажнение", "c4.t": "Аппаратные уходы за лицом", "c4.p": "Профессиональные уходы на косметике Jan Marini, Image Skincare и Biopeptix. Кожа чистая, увлажнённая и сияющая.",
+    "c4.b1": "Глубокое очищение", "c4.b2": "Увлажнение и восстановление", "c4.b3": "Омолаживающий эффект",
+    "c5.tag": "Лицо и тело", "c5.p": "Аппаратный микровибрационный массаж: лимфодренаж, лифтинг и коррекция фигуры. Без боли и инъекций.",
+    "c5.b1": "Эффект заметен с первых процедур", "c5.b2": "Уменьшает отёки и объёмы", "c5.b3": "Антицеллюлитный эффект",
+    "c6.tag": "Расслабление", "c6.t": "Классический массаж лица", "c6.p": "Ручной массаж расслабляет мышцы лица, улучшает кровообращение и возвращает коже свежий вид.",
+    "c6.b1": "Тонус и сияние", "c6.b2": "Меньше отёков", "c6.b3": "Глубокое расслабление",
+    "price.zone": "Цена по зоне", "price.consult": "Цена после консультации", "price.from": "от",
+    "res.title": "До и <em>после</em>", "res.lead": "Реальные результаты наших клиенток. Потяните ползунок, чтобы сравнить.",
+    "res.before": "До", "res.after": "После", "res.1": "Сосудистая сеточка", "res.2": "Пигментация", "res.3": "Акне и воспаления",
+    "about.quote": "Мы хотим, чтобы каждая клиентка чувствовала себя уверенно и красиво в своей коже.",
+    "about.title": "Уютная студия, где <em>ваша кожа на первом месте</em>",
+    "about.p1": "Soprano Studio — студия косметологии в Йыхви, где работают косметологи с медицинским образованием. Наша специализация — эстетическая косметология, лазерная эпиляция, аппаратные и ручные массажи.",
+    "about.p2": "Мы не делаем всем одинаковый уход. Перед процедурой изучаем вашу кожу, обсуждаем цели и составляем план, который даёт результат.",
+    "about.v1": "Медицинское образование и практический опыт", "about.v2": "Профессиональная косметика: Jan Marini, Image Skincare, Biopeptix, Medexy", "about.v3": "Сертифицированное оборудование и все санитарные нормы",
+    "steps.eyebrow": "Как это проходит", "steps.title": "Три простых <em>шага</em>",
+    "s1.t": "Запись", "s1.p": "Позвоните, напишите в Instagram или купите билет через Stebby.",
+    "s2.t": "Консультация", "s2.p": "Оцениваем состояние кожи, обсуждаем ваши пожелания и подбираем процедуру.",
+    "s3.t": "Процедура и домашний уход", "s3.p": "Проводим процедуру и даём рекомендации, как сохранить результат дома.",
+    "prices.title": "Понятные <em>цены</em>",
+    "pr.face30": "Лицо · 30 мин", "pr.face60": "Лицо · 60 мин", "pr.body60": "Тело · 60 мин", "pr.peels": "Пилинги и уходы за лицом",
+    "prices.note": "Стоимость лазерной эпиляции, пилингов и уходов зависит от зоны и потребностей кожи. Точную цену назовём до процедуры.",
+    "stebby.t": "Купите билет онлайн", "stebby.p": "Endospheres и классический массаж лица можно оплатить заранее через Stebby. Выберите услугу, купите билет и согласуйте время по телефону или в Instagram.", "stebby.cta": "Открыть в Stebby",
+    "rev.eyebrow": "Отзывы", "rev.title": "Что говорят <em>клиентки</em>",
+    "rev.1": "Совершенно волшебный опыт! Моя кожа никогда не была такой сияющей и молодой. Спасибо!",
+    "rev.2": "Диагностика кожи помогла точно понять, какие средства подходят моему типу кожи. Результат заметен. Очень рекомендую!",
+    "rev.3": "Массаж лица был таким расслабляющим, а кожа стала шёлковой. Спасибо!",
+    "faq.title": "Частые <em>вопросы</em>", "faq.lead": "Не нашли ответ? Напишите нам в Instagram или позвоните.",
+    "q1": "Нужна ли предварительная запись?", "a1": "Да, мы работаем только по предварительной записи. Запишитесь по телефону, в директ Instagram или через Stebby.",
+    "q2": "Как отменить запись?", "a2": "Отмените минимум за 24 часа до визита. При более поздней отмене сеанс считается проведённым.",
+    "q3": "Можно ли делать лазерную эпиляцию летом?", "a3": "Да. Диодный лазер ENEKA PRO подходит круглый год, даже для загорелой кожи. Седые волосы лазер не удаляет.",
+    "q4": "Что сообщить перед первым визитом?", "a4": "Расскажите о хронических заболеваниях, беременности или других особенностях здоровья. Так мы подберём безопасную и эффективную процедуру.",
+    "q5": "Можно ли оплатить через Stebby?", "a5": "Да. Билет на Endospheres и классический массаж лица можно купить в приложении или на сайте Stebby. После покупки согласуйте время визита по телефону или в Instagram.",
+    "q6": "Есть ли парковка?", "a6": "Да, рядом со входом бесплатная парковка. Точную инструкцию отправим при подтверждении записи.",
+    "q7": "На каком языке обслуживание?", "a7": "На русском и эстонском.",
+    "contact.title": "Ждём вас <em>в Йыхви</em>", "contact.addr": "Адрес", "contact.phone": "Телефон", "contact.email": "E-mail", "contact.map": "Открыть на карте", "contact.byappt": "Только по предварительной записи",
+    "footer.trusted": "Надёжное предприятие",
+    "book.lead": "Выберите удобный способ. Мы работаем по предварительной записи.", "book.call": "Позвонить", "book.copy": "Копировать", "book.copied": "Скопировано",
+    "book.insta": "Написать в Instagram", "book.stebby": "Купить билет через Stebby", "book.stebby.d": "Endospheres и массаж лица", "book.note": "Отмена минимум за 24 часа.",
+    "book.service": "Услуга: ",
+    "ask.eyebrow": "Задайте вопрос", "ask.title": "Остались <em>вопросы?</em>",
+    "ask.lead": "Напишите, что вас интересует: процедура, цена или противопоказания. Косметолог ответит вам по телефону или по e-mail.",
+    "f.name": "Имя", "f.phone": "Телефон", "f.email": "E-mail (по желанию)", "f.service": "Что вас интересует?",
+    "ask.call": "Или позвоните", "ask.dm": "Или напишите в Instagram",
+    "sv.1": "Лазер", "sv.2": "Пилинг", "sv.3": "Диагностика кожи", "sv.4": "Уход за лицом", "sv.6": "Массаж лица", "sv.7": "Нужен совет",
+    "f.msg": "Ваш вопрос", "f.consent": "Даю согласие на использование моих данных только для ответа на мой вопрос.",
+    "f.send": "Отправить вопрос", "f.sending": "Отправляем…",
+    "f.invalid": "Заполните поля, отмеченные звёздочкой.",
+    "f.error": "Не удалось отправить сообщение. Позвоните нам: +372 5682 4792 или напишите в Instagram @soprano_services.",
+    "f.done.t": "Спасибо!", "f.done.p": "Ваш вопрос получен. Мы свяжемся с вами по указанному телефону или e-mail."
+  };
+  var ET_EXTRA = {
+    "book.copied": "Kopeeritud", "book.service": "Teenus: ",
+    "f.sending": "Saadame…", "f.invalid": "Täida tärniga tähistatud väljad.",
+    "f.error": "Sõnumit ei õnnestunud saata. Helista meile: +372 5682 4792 või kirjuta Instagramis @soprano_services.",
+    "f.done.t": "Aitäh!", "f.done.p": "Saime sinu küsimuse kätte. Võtame sinuga ühendust telefoni või e-posti teel."
+  };
+  var ET = {};
+  var textEls = document.querySelectorAll("[data-i18n]");
+  var htmlEls = document.querySelectorAll("[data-i18n-html]");
+  textEls.forEach(function (el) { ET[el.dataset.i18n] = el.textContent; });
+  htmlEls.forEach(function (el) { ET[el.dataset.i18nHtml] = el.innerHTML; });
+  Object.assign(ET, ET_EXTRA);
+  var dict = { et: ET, ru: RU };
+  var lang = "et";
+
+  function t(key) { return (dict[lang] && dict[lang][key]) || ET[key] || ""; }
+  function setLang(next) {
+    lang = next === "ru" ? "ru" : "et";
+    document.documentElement.lang = lang;
+    textEls.forEach(function (el) { var v = t(el.dataset.i18n); if (v) el.textContent = v; });
+    htmlEls.forEach(function (el) { var v = t(el.dataset.i18nHtml); if (v) el.innerHTML = v; });
+    document.querySelectorAll("[data-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
+    try { localStorage.setItem("soprano-lang", lang); } catch (e) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem("soprano-lang"); } catch (e) {}
+  var nav = (navigator.language || "").toLowerCase();
+  setLang(saved || (nav.indexOf("ru") === 0 ? "ru" : "et"));
+  document.querySelectorAll("[data-lang]").forEach(function (b) { b.addEventListener("click", function () { setLang(b.dataset.lang); }); });
+
+  // Header shadow and mobile booking bar
+  var header = document.querySelector(".header");
+  var mbar = document.getElementById("mbar");
+  function onScroll() {
+    var y = window.scrollY;
+    header.classList.toggle("scrolled", y > 8);
+    mbar.classList.toggle("show", y > 420);
+  }
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
+
+  // Mobile menu
+  var menuBtn = document.querySelector(".menu-btn");
+  var mnav = document.getElementById("mobile-nav");
+  function setMenu(open) {
+    mnav.hidden = !open;
+    menuBtn.setAttribute("aria-expanded", String(open));
+  }
+  menuBtn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    setMenu(mnav.hidden);
+  });
+  mnav.querySelectorAll("a").forEach(function (a) { a.addEventListener("click", function () { setMenu(false); }); });
+  document.addEventListener("click", function (e) {
+    if (!mnav.hidden && !header.contains(e.target)) setMenu(false);
+  });
+  document.addEventListener("keydown", function (e) { if (e.key === "Escape") setMenu(false); });
+  window.addEventListener("resize", function () { if (window.innerWidth >= 980) setMenu(false); });
+
+  // Booking sheet
+  var dlg = document.getElementById("book");
+  var svc = document.getElementById("book-service");
+  document.querySelectorAll("[data-book]").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var card = b.closest(".card");
+      if (card) { svc.textContent = t("book.service") + card.querySelector("h3").textContent; svc.hidden = false; }
+      else { svc.hidden = true; }
+      if (typeof dlg.showModal === "function") dlg.showModal(); else dlg.setAttribute("open", "");
+    });
+  });
+  dlg.querySelector("[data-close]").addEventListener("click", function () { dlg.close(); });
+  dlg.addEventListener("click", function (e) { if (e.target === dlg) dlg.close(); });
+
+  var copyBtn = document.getElementById("copy-phone");
+  copyBtn.addEventListener("click", function () {
+    var done = function () { copyBtn.textContent = t("book.copied"); setTimeout(function () { copyBtn.textContent = t("book.copy"); }, 1800); };
+    try {
+      navigator.clipboard.writeText("+37256824792").then(done, function () { selectPhone(); });
+    } catch (e) { selectPhone(); }
+  });
+  function selectPhone() {
+    var el = dlg.querySelector(".opt .d");
+    var r = document.createRange(); r.selectNodeContents(el);
+    var s = window.getSelection(); s.removeAllRanges(); s.addRange(r);
+  }
+
+  // Question form. Messages go to the studio e-mail through FormSubmit (formsubmit.co).
+  // The very first submission sends an activation e-mail to this address; confirm it once.
+  var FORM_ENDPOINT = "https://formsubmit.co/ajax/org.lidia@gmail.com";
+  var form = document.getElementById("ask-form");
+  var msg = document.getElementById("f-msg");
+  var count = document.getElementById("f-count");
+  var status = document.getElementById("f-status");
+  var submit = document.getElementById("f-submit");
+  msg.addEventListener("input", function () { count.textContent = msg.value.length; });
+  form.querySelectorAll("input, textarea").forEach(function (el) {
+    el.addEventListener("input", function () { var w = el.closest(".field, .consent"); if (w) w.classList.remove("invalid"); });
+  });
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    status.className = "form-status"; status.textContent = "";
+    var bad = [];
+    ["f-name", "f-phone", "f-msg"].forEach(function (id) { var el = document.getElementById(id); if (!el.value.trim()) bad.push(el); });
+    var email = document.getElementById("f-email");
+    if (email.value.trim() && !email.checkValidity()) bad.push(email);
+    var consent = document.getElementById("f-consent");
+    if (!consent.checked) bad.push(consent);
+    bad.forEach(function (el) { el.closest(".field, .consent").classList.add("invalid"); });
+    if (bad.length) { status.className = "form-status err"; status.textContent = t("f.invalid"); bad[0].focus(); return; }
+    if (form.elements._honey.value) return;
+
+    var data = {
+      name: form.elements.name.value.trim(),
+      phone: form.elements.phone.value.trim(),
+      email: form.elements.email.value.trim(),
+      service: (function () { var c = form.querySelector("input[name=service]:checked"); return c ? c.nextElementSibling.textContent : ""; })(),
+      message: form.elements.message.value.trim(),
+      language: lang.toUpperCase(),
+      _subject: "Soprano Studio: küsimus kodulehelt / вопрос с сайта",
+      _template: "table",
+      _captcha: "false"
+    };
+    if (data.email) data._replyto = data.email;
+    submit.disabled = true;
+    submit.querySelector("span").textContent = t("f.sending");
+    fetch(FORM_ENDPOINT, {
+      method: "POST",
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify(data)
+    }).then(function (r) { return r.json().then(function (j) { if (!r.ok || String(j.success) !== "true") throw new Error(j.message || r.status); }); })
+      .then(function () {
+        var done = document.createElement("div");
+        done.className = "form-done";
+        done.setAttribute("role", "status");
+        done.innerHTML = '<span class="seal"><svg><use href="#i-check"/></svg></span>';
+        var h = document.createElement("h3"); h.textContent = t("f.done.t");
+        var p = document.createElement("p"); p.textContent = t("f.done.p");
+        done.append(h, p);
+        form.replaceWith(done);
+      })
+      .catch(function () {
+        status.className = "form-status err"; status.textContent = t("f.error");
+        submit.disabled = false;
+        submit.querySelector("span").textContent = t("f.send");
+      });
+  });
+
+  // Before / after sliders
+  document.querySelectorAll(".ba-frame").forEach(function (f) {
+    var input = f.querySelector("input");
+    var set = function () { f.style.setProperty("--pos", input.value + "%"); };
+    input.addEventListener("input", set);
+    set();
+  });
+})();
+</script>
+</body>
+</html>
