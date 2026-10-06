@@ -257,6 +257,17 @@ p { margin: 0; }
 .values li { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: center; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 0.98rem; }
 .values svg { width: 26px; height: 26px; color: var(--gold); }
 
+.award {
+  display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 18px; align-items: center; margin-top: 8px;
+  padding: 16px 20px 16px 16px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--paper);
+  text-decoration: none; color: var(--ink); transition: border-color .25s ease, transform .25s ease;
+}
+.award:hover { border-color: var(--gold); transform: translateY(-2px); }
+.award img { width: 92px; height: 92px; }
+.award strong { display: block; font: 400 1.6rem/1.15 var(--font-display); color: var(--forest); }
+.award .txt { display: grid; gap: 4px; font-size: 0.92rem; color: var(--muted); }
+.award em { font-style: normal; font-size: 0.85rem; color: var(--rose); font-weight: 500; }
+
 /* Steps */
 .steps { list-style: none; padding: 0; margin: 0; display: grid; gap: 18px; counter-reset: step; }
 @media (min-width: 820px) { .steps { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 26px; } }
@@ -428,8 +439,8 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
 .footer .logo { height: 40px; }
 .footer a { text-decoration: none; }
 .footer a:hover { color: var(--rose); }
-.badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 12px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); }
-.badge svg { width: 14px; height: 14px; color: var(--gold); }
+.badge { display: inline-flex; align-items: center; gap: 10px; padding: 4px 16px 4px 4px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper); }
+.badge img { width: 40px; height: 40px; }
 
 /* Mobile booking bar */
 .mbar {
@@ -728,6 +739,10 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
           <li><svg><use href="#i-spark"/></svg><span data-i18n="about.v2">Professionaalne kosmeetika: Jan Marini, Image Skincare, Biopeptix, Medexy</span></li>
           <li><svg><use href="#i-shield"/></svg><span data-i18n="about.v3">Sertifitseeritud seadmed ja kõik sanitaarnõuded täidetud</span></li>
         </ul>
+        <a class="award" href="https://evul.ee/liikmed/16030010-SOPRANOS-OU/sertifikaat" target="_blank" rel="noopener">
+          <img src="img/evul-turvaline-partner.svg" width="92" height="92" alt="Turvaline partner, Eesti Võlausaldajate Liit" loading="lazy">
+          <span class="txt"><strong data-i18n="award.t">Turvaline partner</strong><span data-i18n="award.p">Eesti Võlausaldajate Liit on tunnustanud SOPRANOS OÜ-d usaldusväärse partnerina.</span><em data-i18n="award.cta">Vaata sertifikaati →</em></span>
+        </a>
       </div>
     </div>
   </section>
@@ -907,7 +922,7 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
 <footer class="footer">
   <div class="wrap footer-row">
     <a class="brand" href="#top" aria-label="Soprano Studio"><img class="logo" src="img/logo-text.png" alt="Soprano Studio · Aesthetic Laser Services" width="583" height="133" loading="lazy"></a>
-    <a class="badge" href="https://evul.ee/liikmed/16030010-SOPRANOS-OU/sertifikaat" target="_blank" rel="noopener"><svg><use href="#i-shield"/></svg><span data-i18n="footer.trusted">Usaldusväärne ettevõte</span></a>
+    <a class="badge" href="https://evul.ee/liikmed/16030010-SOPRANOS-OU/sertifikaat" target="_blank" rel="noopener"><img src="img/evul-turvaline-partner.svg" width="40" height="40" alt="" loading="lazy"><span data-i18n="award.t">Turvaline partner</span></a>
     <span>© 2026 SOPRANOS OÜ · Rakvere 19, Jõhvi</span>
   </div>
 </footer>
@@ -1010,7 +1025,7 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
     "q6": "Есть ли парковка?", "a6": "Да, рядом со входом бесплатная парковка. Точную инструкцию отправим при подтверждении записи.",
     "q7": "На каком языке обслуживание?", "a7": "На русском и эстонском.",
     "contact.title": "Ждём вас <em>в Йыхви</em>", "contact.addr": "Адрес", "contact.phone": "Телефон", "contact.email": "E-mail", "contact.map": "Открыть на карте", "contact.byappt": "Только по предварительной записи",
-    "footer.trusted": "Надёжное предприятие",
+    "award.t": "Надёжный партнёр", "award.p": "Союз кредиторов Эстонии (EVUL) признал SOPRANOS OÜ надёжным партнёром.", "award.cta": "Смотреть сертификат →",
     "book.lead": "Выберите удобный способ. Мы работаем по предварительной записи.", "book.call": "Позвонить", "book.copy": "Копировать", "book.copied": "Скопировано",
     "book.insta": "Написать в Instagram", "book.stebby": "Купить билет через Stebby", "book.stebby.d": "Endospheres и массаж лица", "book.note": "Отмена минимум за 24 часа.",
     "book.service": "Услуга: ",
