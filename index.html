@@ -462,7 +462,8 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
 }
 .to-top svg { width: 20px; height: 20px; transform: rotate(-90deg); }
 .to-top.show { opacity: 1; transform: none; pointer-events: auto; }
-.to-top:hover { background: var(--forest); color: var(--on-forest); }
+@media (hover: hover) and (pointer: fine) { .to-top:hover { background: var(--forest); color: var(--on-forest); } }
+.to-top:active { transform: scale(.94); }
 @media (max-width: 979px) { .to-top { bottom: calc(86px + env(safe-area-inset-bottom, 0px)); width: 46px; height: 46px; } }
 
 .mbar {
@@ -1105,7 +1106,7 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
     window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
     if (location.hash) history.replaceState(null, "", location.pathname + location.search);
   }
-  toTop.addEventListener("click", scrollToTop);
+  toTop.addEventListener("click", function (e) { scrollToTop(e); toTop.blur(); });
   document.querySelectorAll(".brand").forEach(function (a) { a.addEventListener("click", scrollToTop); });
   function onScroll() {
     var y = window.scrollY;
