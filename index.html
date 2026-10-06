@@ -295,6 +295,18 @@ p { margin: 0; }
 .review figcaption { display: flex; align-items: center; gap: 12px; font-size: 0.9rem; color: var(--muted); }
 .stars { color: var(--gold); letter-spacing: 3px; font-size: 0.9rem; }
 
+/* Partners: one row of brand marks recoloured in forest ink */
+.partners-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+@media (min-width: 860px) { .partners-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 20px; } }
+.partner {
+  display: grid; grid-template-rows: 1fr auto; gap: 14px; justify-items: center; align-items: center; min-width: 0;
+  padding: 26px 18px 18px; border-radius: var(--radius); border: 1px solid var(--line); background: var(--paper);
+  text-decoration: none; color: var(--muted); transition: border-color .25s ease, transform .25s ease;
+}
+a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
+.partner img { height: 64px; width: auto; max-width: 100%; object-fit: contain; }
+.partner span { font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; text-align: center; }
+
 /* FAQ */
 .faq-grid { display: grid; gap: clamp(28px, 5vw, 64px); }
 @media (min-width: 920px) { .faq-grid { grid-template-columns: 0.8fr 1.2fr; } }
@@ -774,6 +786,22 @@ p { margin: 0; }
     </div>
   </section>
 
+  <section class="section" id="partnerid" style="padding-top:0">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow" data-i18n="partners.eyebrow">Partnerid</span>
+        <h2 data-i18n-html="partners.title">Meie <em>partnerid</em></h2>
+        <p data-i18n="partners.lead">Oleme uhked, et teeme koostööd valdkonna juhtivate organisatsioonidega. Need tugevad partnerlussuhted võimaldavad meil pakkuda erakordset väärtust ja saavutada ühist edu.</p>
+      </div>
+      <div class="partners-grid">
+        <a class="partner" href="https://ssb.ee/16024712-ursum-ou/meedia-arvamuslood" target="_blank" rel="noopener"><img src="img/partner-image-skincare.png" alt="Image Skincare" width="340" height="262" loading="lazy"><span>URSUM OÜ</span></a>
+        <a class="partner" href="https://ssb.ee/16783636-medexy-ou/meedia-arvamuslood" target="_blank" rel="noopener"><img src="img/partner-medexy.png" alt="Medexy" width="238" height="92" loading="lazy"><span>MEDEXY OÜ</span></a>
+        <div class="partner"><img src="img/partner-biopeptix.png" alt="Biopeptix" width="450" height="118" loading="lazy"><span>Biopeptix</span></div>
+        <div class="partner"><img src="img/partner-jan-marini.png" alt="Jan Marini Skin Research" width="1063" height="525" loading="lazy"><span>Jan Marini</span></div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="kkk" style="padding-top:0">
     <div class="wrap faq-grid">
       <div class="section-head">
@@ -971,6 +999,8 @@ p { margin: 0; }
     "rev.1": "Совершенно волшебный опыт! Моя кожа никогда не была такой сияющей и молодой. Спасибо!",
     "rev.2": "Диагностика кожи помогла точно понять, какие средства подходят моему типу кожи. Результат заметен. Очень рекомендую!",
     "rev.3": "Массаж лица был таким расслабляющим, а кожа стала шёлковой. Спасибо!",
+    "partners.eyebrow": "Партнёры", "partners.title": "Наши <em>партнёры</em>",
+    "partners.lead": "Мы гордимся сотрудничеством с ведущими компаниями отрасли. Эти надёжные партнёрские отношения позволяют нам предлагать клиентам исключительное качество и вместе достигать успеха.",
     "faq.title": "Частые <em>вопросы</em>", "faq.lead": "Не нашли ответ? Напишите нам в Instagram или позвоните.",
     "q1": "Нужна ли предварительная запись?", "a1": "Да, мы работаем только по предварительной записи. Запишитесь по телефону, в директ Instagram или через Stebby.",
     "q2": "Как отменить запись?", "a2": "Отмените минимум за 24 часа до визита. При более поздней отмене сеанс считается проведённым.",
