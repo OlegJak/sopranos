@@ -452,6 +452,19 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
 .badge img { width: 40px; height: 40px; }
 
 /* Mobile booking bar */
+/* Back to top */
+.to-top {
+  position: fixed; right: var(--gutter); bottom: calc(24px + env(safe-area-inset-bottom, 0px)); z-index: 44;
+  width: 50px; height: 50px; border-radius: 50%; display: grid; place-items: center; cursor: pointer;
+  background: color-mix(in srgb, var(--paper) 90%, transparent); color: var(--forest); border: 1px solid var(--gold);
+  backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 14px 30px -18px rgba(30, 58, 50, .55);
+  opacity: 0; transform: translateY(12px); pointer-events: none; transition: opacity .3s ease, transform .3s ease, background .2s ease, color .2s ease;
+}
+.to-top svg { width: 20px; height: 20px; transform: rotate(-90deg); }
+.to-top.show { opacity: 1; transform: none; pointer-events: auto; }
+.to-top:hover { background: var(--forest); color: var(--on-forest); }
+@media (max-width: 979px) { .to-top { bottom: calc(86px + env(safe-area-inset-bottom, 0px)); width: 46px; height: 46px; } }
+
 .mbar {
   position: fixed; left: 0; right: 0; bottom: 0; z-index: 45; display: flex; gap: 10px; align-items: center;
   padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom, 0px));
@@ -937,6 +950,8 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
   </div>
 </footer>
 
+<button class="to-top" id="to-top" type="button" aria-label="Üles" title="Üles"><svg><use href="#i-arrow"/></svg></button>
+
 <div class="mbar" id="mbar">
   <button class="btn" type="button" data-book data-i18n="cta.book">Broneeri aeg</button>
   <a class="round" href="tel:+37256824792" aria-label="+372 5682 4792"><svg><use href="#i-phone"/></svg></a>
@@ -1072,6 +1087,9 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
     textEls.forEach(function (el) { var v = t(el.dataset.i18n); if (v) el.textContent = v; });
     htmlEls.forEach(function (el) { var v = t(el.dataset.i18nHtml); if (v) el.innerHTML = v; });
     document.querySelectorAll("[data-lang]").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.lang === lang)); });
+    var up = lang === "ru" ? "Наверх" : "Üles";
+    var tt = document.getElementById("to-top");
+    if (tt) { tt.setAttribute("aria-label", up); tt.title = up; }
   }
   // Estonian is the main language: the page always opens in ET, Russian only on request.
   try { localStorage.removeItem("soprano-lang"); } catch (e) {}
@@ -1080,10 +1098,20 @@ a.partner:hover { border-color: var(--gold); transform: translateY(-2px); }
   // Header shadow and mobile booking bar
   var header = document.querySelector(".header");
   var mbar = document.getElementById("mbar");
+  var toTop = document.getElementById("to-top");
+  function scrollToTop(e) {
+    if (e) e.preventDefault();
+    var smooth = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: smooth ? "smooth" : "auto" });
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+  }
+  toTop.addEventListener("click", scrollToTop);
+  document.querySelectorAll(".brand").forEach(function (a) { a.addEventListener("click", scrollToTop); });
   function onScroll() {
     var y = window.scrollY;
     header.classList.toggle("scrolled", y > 8);
     mbar.classList.toggle("show", y > 420);
+    toTop.classList.toggle("show", y > 700);
   }
   window.addEventListener("scroll", onScroll, { passive: true });
   onScroll();
