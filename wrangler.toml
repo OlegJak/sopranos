@@ -1,0 +1,9 @@
+# Cloudflare Pages: the static site + /admin demo with Pages Functions and D1.
+name = "soprano-demo"
+pages_build_output_dir = "dist"
+compatibility_date = "2026-10-01"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "soprano-demo"
+database_id = "5d2a3fce-f79b-4860-9278-58fb3e823b96"
